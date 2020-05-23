@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  web:
+    depends_on:
+      - "db"
+    build: .
+    ports:
+      - "3000:3000"
+  db:
+    image: redis:6.0.3-alpine3.11
+    ports:
+      - "6379"

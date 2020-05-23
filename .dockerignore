@@ -1,0 +1,7 @@
+/.bundle
+/log/*.log
+/tmp
+.envrc
+.ruby-gemset
+.ruby-version
+/.git
