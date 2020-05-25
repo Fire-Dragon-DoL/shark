@@ -53,10 +53,14 @@ The pepper is added by encrypting the hash with
 
 ### Successful Authentication
 
-A successful authentication results in a response with `{ "success": true }`
-inside the body.
-This is not very useful and should be expanded to return some kind of token to
-authorize following requests.
+A successful authentication results in a response with a token that can be
+used to authorize following requests.
+
+This part of the code should be expanded:
+- Possibility to use JWT
+- Token should be stored and decide if multiple tokens are allowed to support
+  multiple devices being signed in at the same time
+- Some form of code to blacklist JWT that have been compromised
 
 ## Environment Variables
 
