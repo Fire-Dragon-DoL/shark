@@ -9,7 +9,7 @@ module Domain
       end
 
       def call(name, password)
-        DB.setnx("#{NS}:#{name}", password)
+        DB::Repo.setnx("#{DB::NS}:#{NS}:#{name}", password)
       end
     end
   end

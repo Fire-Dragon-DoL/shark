@@ -1,1 +1,4 @@
-DB = Redis.new
+module DB
+  Repo = Redis.new
+  NS = "shark"
+end
