@@ -2,11 +2,13 @@ version: "3.8"
 services:
   web:
     depends_on:
-      - "redis.localhost"
+      - db
     build: .
     ports:
       - "3000:3000"
-  "redis.localhost":
+    environment:
+      - "REDIS_URL='redis://db:6379/15'"
+  db:
     image: redis:6.0.3-alpine3.11
-    ports:
+    expose:
       - "6379"

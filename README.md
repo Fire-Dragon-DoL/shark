@@ -57,3 +57,10 @@ A successful authentication results in a response with `{ "success": true }`
 inside the body.
 This is not very useful and should be expanded to return some kind of token to
 authorize following requests.
+
+## Environment Variables
+
+To run the application without docker, it's necessary to set the following
+environment variables:
+
+- `REDIS_URL`

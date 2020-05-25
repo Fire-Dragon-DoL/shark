@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  db:
+    image: redis:6.0.3-alpine3.11
+    ports:
+      - "6400:6379"
