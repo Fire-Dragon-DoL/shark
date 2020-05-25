@@ -7,9 +7,6 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'puma', '~> 4.1'
 gem 'redis', '~> 4.1'
 gem 'bcrypt', '~> 3.1'
-gem 'aes', '~> 0.5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
 
 group :development, :test do
   gem 'pry-byebug'
