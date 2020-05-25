@@ -36,7 +36,8 @@ result=1
 docker-compose -f docker-compose.yml build
 docker-compose -f docker-compose.yml up -d --force-recreate --remove-orphans
 
-if do_retry 5 do_request POST 'http://localhost:3000/v1/users'; then
+sign_up='{"username": "francesco", "password": "apassword", "password_confirmation": "apassword"}'
+if do_retry 5 do_request POST 'http://localhost:3000/v1/users' "$sign_up"; then
   # sign in
   result=0
 fi
