@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'domain/password/hash'
+require 'domain/password'
 
 module Domain
   module Password
