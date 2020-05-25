@@ -7,7 +7,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - "REDIS_URL='redis://db:6379/15'"
+      - "REDIS_URL=redis://db:6379/15"
   db:
     image: redis:6.0.3-alpine3.11
     expose:

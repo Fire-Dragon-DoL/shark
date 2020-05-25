@@ -33,15 +33,15 @@ do_retry() {
 }
 
 result=1
-docker-compose build
-docker-compose up -d --force-recreate --remove-orphans
+docker-compose -f docker-compose.yml build
+docker-compose -f docker-compose.yml up -d --force-recreate --remove-orphans
 
 if do_retry 5 do_request POST 'http://localhost:3000/v1/users'; then
   # sign in
   result=0
 fi
 
-docker-compose down
+docker-compose -f docker-compose.yml down
 
 if [ $result -eq 0 ]; then
   echo "- - - Success - - -"
