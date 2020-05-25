@@ -19,9 +19,10 @@ module Domain
         username = SecureRandom.uuid
         password = Password::Sample.default
 
-        Put.(username, password)
+        prior_is_put = Put.(username, password)
         is_put = Put.(username, password)
 
+        assert prior_is_put != is_put
         refute is_put
       end
     end
