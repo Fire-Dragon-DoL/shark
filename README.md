@@ -40,12 +40,20 @@ The following improvements should be made before deploying the application:
 
 ### Password Encryption
 
-Password is encrypted using `Bcrypt`, however `argon2id` should be used if
-a security expert knows how to properly configure it, based on
+Password is hashed using `Bcrypt`, however `argon2id` should be used if
+a security expert is available to properly configure it, based on
 [OWASP Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#introduction)
 guidelines.
+
 Rails `has_secure_password` is not used to allow the addition of a
 [pepper](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#peppering)
 after hashing is performed.
 The pepper is added by encrypting the hash with
 [AES with CBC mode](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html#cipher-modes).
+
+### Successful Authentication
+
+A successful authentication results in a response with `{ "success": true }`
+inside the body.
+This is not very useful and should be expanded to return some kind of token to
+authorize following requests.
