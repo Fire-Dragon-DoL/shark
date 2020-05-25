@@ -1,13 +1,13 @@
 require 'test_helper'
 require 'domain/user/put'
 require 'domain/password'
-require 'securerandom'
+require 'domain/username'
 
 module Domain
   module User
     class PutTest < ActiveSupport::TestCase
       test "With unique username is successful" do
-        username = SecureRandom.uuid
+        username = Username::Sample.random
         password = Password::Sample.default
 
         is_put = Put.(username, password)
@@ -16,7 +16,7 @@ module Domain
       end
 
       test "With duplicate username fails" do
-        username = SecureRandom.uuid
+        username = Username::Sample.random
         password = Password::Sample.default
 
         prior_is_put = Put.(username, password)
