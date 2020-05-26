@@ -24,7 +24,7 @@ module Domain
       is_signed_up = SignUp.(username, password)
 
       assert prior_is_signed_up != is_signed_up
-      refute is_signed_up
+      assert_not is_signed_up
     end
   end
 end

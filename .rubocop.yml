@@ -2,9 +2,9 @@ require:
   - rubocop-rails
 
 Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: false
+  Enabled: true
 Layout/SpaceAroundMethodCallOperator:
-  Enabled: false
+  Enabled: true
 Lint/DeprecatedOpenSSLConstant:
   Enabled: true
 Lint/RaiseException:
@@ -22,7 +22,9 @@ Style/HashTransformValues:
 Style/SlicingWithRange:
   Enabled: true
 Rails/RefuteMethods:
-  Enabled: false
+  Enabled: true
+# `call` on objects and classes make more explicit the concept of behavioral
+# objects
 Style/LambdaCall:
   Enabled: false
 # No documentation for take-home assignement

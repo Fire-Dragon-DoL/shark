@@ -22,7 +22,7 @@ module Domain
 
         is_match = Password::Match.(digest_pass, other_password)
 
-        refute is_match
+        assert_not is_match
       end
 
       test 'Raises when both passwords are plain text' do

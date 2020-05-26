@@ -16,7 +16,7 @@ module Domain
       sign_in.get = User::Get::Substitute.new(username, password)
       token = sign_in.(username, password)
 
-      refute token.nil?
+      assert_not token.nil?
     end
 
     test 'With missing username fails' do

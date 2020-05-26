@@ -25,7 +25,7 @@ module Domain
         is_put = Put.(username, password)
 
         assert prior_is_put != is_put
-        refute is_put
+        assert_not is_put
       end
     end
   end

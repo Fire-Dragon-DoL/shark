@@ -26,7 +26,7 @@ module User
 
       sign_up = SignUp.build(params)
 
-      refute sign_up.valid?
+      assert_not sign_up.valid?
       assert sign_up.errors.details[:password].find do |msg|
         msg[:error] == :confirmation
       end
@@ -41,7 +41,7 @@ module User
 
       sign_up = SignUp.build(params)
 
-      refute sign_up.valid?
+      assert_not sign_up.valid?
       assert sign_up.errors.details[:name].find do |msg|
         msg[:error] == :blank
       end
@@ -56,7 +56,7 @@ module User
 
       sign_up = SignUp.build(params)
 
-      refute sign_up.valid?
+      assert_not sign_up.valid?
       assert sign_up.errors.details[:name].find do |msg|
         msg[:error] == :too_short
       end
@@ -71,7 +71,7 @@ module User
 
       sign_up = SignUp.build(params)
 
-      refute sign_up.valid?
+      assert_not sign_up.valid?
       assert sign_up.errors.details[:name].find do |msg|
         msg[:error] == :too_long
       end
@@ -86,7 +86,7 @@ module User
 
       sign_up = SignUp.build(params)
 
-      refute sign_up.valid?
+      assert_not sign_up.valid?
       assert sign_up.errors.details[:password].find do |msg|
         msg[:error] == :too_short
       end
@@ -101,7 +101,7 @@ module User
 
       sign_up = SignUp.build(params)
 
-      refute sign_up.valid?
+      assert_not sign_up.valid?
       assert sign_up.errors.details[:password].find do |msg|
         msg[:error] == :too_short
       end
