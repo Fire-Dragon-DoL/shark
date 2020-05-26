@@ -24,9 +24,10 @@ Style/SlicingWithRange:
 Rails/RefuteMethods:
   Enabled: true
 # `call` on objects and classes make more explicit the concept of behavioral
-# objects
+# objects (known also as service objects)
 Style/LambdaCall:
-  Enabled: false
+  EnforcedStyle: braces
+  Enabled: true
 # No documentation for take-home assignement
 Style/Documentation:
   Enabled: false
