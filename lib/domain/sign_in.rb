@@ -8,8 +8,8 @@ module Domain
     attr_accessor :match
 
     def initialize
-      @get ||= User::Get.new
-      @match ||= Password::Match.new
+      @get = User::Get.new
+      @match = Password::Match.new
     end
 
     def call(username, password)

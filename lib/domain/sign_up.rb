@@ -7,8 +7,8 @@ module Domain
     attr_accessor :digest
 
     def initialize
-      @put ||= User::Put.new
-      @digest ||= Password::Digest.new
+      @put = User::Put.new
+      @digest = Password::Digest.new
     end
 
     def call(username, password)
