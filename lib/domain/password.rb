@@ -55,10 +55,10 @@ module Domain
     def self.fixed_time_compare(left, right)
       return false if left.blank? || right.blank? || left.bytesize != right.bytesize
 
-      left_unpacked = left.unpack "C#{left.bytesize}"
+      unpacked = left.unpack "C#{left.bytesize}"
 
       res = 0
-      left.each_byte { |byte| res |= byte ^ left_unpacked.shift }
+      right.each_byte { |byte| res |= byte ^ unpacked.shift }
       res.zero?
     end
 

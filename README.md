@@ -79,3 +79,7 @@ environment variables:
 URLs for the API endpoint are prefixed with API version number. This allows
 maintaining different endpoints when the API changes without breaking existing
 clients.
+
+## Documentation
+
+Documentation has been ignored for this take-home assignement

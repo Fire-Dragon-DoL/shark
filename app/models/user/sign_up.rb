@@ -34,7 +34,7 @@ module User
 
     module Sample
       def self.name
-        ::Domain::Username::Sample.default
+        ::Domain::Username::Sample.random
       end
 
       def self.password
