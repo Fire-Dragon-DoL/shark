@@ -36,6 +36,9 @@ The following improvements should be made before deploying the application:
 - Nginx in front coupled with fail2ban to mitigate denial-of-service attacks
   and brute-force attacks
 
+The `Password` and `Username` module should be namespaced under the
+`Domain::User` module instead of being directly inside `Domain`.
+
 ## Authentication
 
 ### Password Encryption

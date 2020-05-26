@@ -7,11 +7,7 @@ do_2xx_request() {
   local body
   body="${@:3}"
 
-  if [ "$DEBUG" == "on" ]; then
-    curl -o - -f -H "Content-Type: application/json" -X "$1" "$2" --data "$body"
-  else
-    curl -o - -f -H "Content-Type: application/json" -X "$1" "$2" --data "$body" 2>/dev/null
-  fi
+  curl -o - -f -H "Content-Type: application/json" -X "$1" "$2" --data "$body"
   curl_result=$?
   test $curl_result -eq 0 && echo
 
@@ -25,11 +21,7 @@ do_request() {
   local body
   body="${@:3}"
 
-  if [ "$DEBUG" == "on" ]; then
-    curl -o - -H "Content-Type: application/json" -X "$1" "$2" --data "$body"
-  else
-    curl -o - -H "Content-Type: application/json" -X "$1" "$2" --data "$body" 2>/dev/null
-  fi
+  curl -o - -H "Content-Type: application/json" -X "$1" "$2" --data "$body"
   curl_result=$?
   test $curl_result -eq 0 && echo
 

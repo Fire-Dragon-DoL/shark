@@ -38,11 +38,11 @@ module User
       end
 
       def self.empty_name
-        ""
+        ''
       end
 
       def self.empty_password
-        ""
+        ''
       end
     end
   end
