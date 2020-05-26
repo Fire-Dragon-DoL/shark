@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'domain/password'
 
 module Domain
   module Password
     class EncryptTest < ActiveSupport::TestCase
-      test "Password encryption is symmetrical" do
+      test 'Password encryption is symmetrical' do
         password = Password::Sample.default
 
         pass_hash = Password.encrypt(password)
@@ -13,7 +15,7 @@ module Domain
         assert password == decrypted_pass
       end
 
-      test "Encrypted password differs from unencrypted" do
+      test 'Encrypted password differs from unencrypted' do
         password = Password::Sample.default
 
         pass_hash = Password.encrypt(password)
@@ -21,9 +23,9 @@ module Domain
         assert pass_hash != password
       end
 
-      test "Decryption with incorrect key raises error" do
+      test 'Decryption with incorrect key raises error' do
         password = Password::Sample.default
-        pepper = "invalid"
+        pepper = 'invalid'
 
         pass_hash = Password.encrypt(password)
 

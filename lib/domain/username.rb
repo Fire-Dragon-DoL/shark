@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'securerandom'
 
 module Domain
   module Username
     module Sample
       def self.default
-        "ausername"
+        'ausername'
       end
 
       def self.random

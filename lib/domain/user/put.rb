@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Domain
   module User
     class Put
-      NS = "user"
+      NS = 'user'
 
       def self.call(name, password)
         instance = new

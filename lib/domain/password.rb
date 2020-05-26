@@ -1,4 +1,6 @@
-require "securerandom"
+# frozen_string_literal: true
+
+require 'securerandom'
 
 module Domain
   # OWASP Password Storage Cheat Sheet:
@@ -6,7 +8,7 @@ module Domain
   module Password
     module Sample
       def self.default
-        "apassword"
+        'apassword'
       end
 
       def self.random
@@ -31,7 +33,7 @@ module Domain
 
     def self.load_hash(pass_hash)
       bcrypt_pass = ::BCrypt::Password.new(pass_hash)
-      return bcrypt_pass.to_s, bcrypt_pass.salt
+      [bcrypt_pass.to_s, bcrypt_pass.salt]
     end
 
     # Encryption uses AES-256-GCM, satisfying OWASP recommendation
@@ -50,13 +52,14 @@ module Domain
     # Extracted from Devise:
     # https://github.com/heartcombo/devise/blob/b52e642c0131f7b0d9f2dd24d8607a186f18223e/lib/devise.rb#L503-L512
     # Prevents timing attacks
-    def self.fixed_time_compare(a, b)
-      return false if a.blank? || b.blank? || a.bytesize != b.bytesize
-      l = a.unpack "C#{a.bytesize}"
+    def self.fixed_time_compare(left, right)
+      return false if left.blank? || right.blank? || left.bytesize != right.bytesize
+
+      left_unpacked = left.unpack "C#{left.bytesize}"
 
       res = 0
-      b.each_byte { |byte| res |= byte ^ l.shift }
-      res == 0
+      left.each_byte { |byte| res |= byte ^ left_unpacked.shift }
+      res.zero?
     end
 
     class Digest

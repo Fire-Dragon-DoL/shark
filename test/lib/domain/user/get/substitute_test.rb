@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'domain/user/get'
 require 'domain/password'
@@ -7,7 +9,7 @@ module Domain
   module User
     class Get
       class SubstituteTest < ActiveSupport::TestCase
-        test "With username matching configured returns digested password" do
+        test 'With username matching configured returns digested password' do
           username = Username::Sample.random
           password = Password::Sample.default
           get = Substitute.new(username, password)
@@ -18,7 +20,7 @@ module Domain
           assert is_matching_pass
         end
 
-        test "With username different from configured returns nil" do
+        test 'With username different from configured returns nil' do
           username = Username::Sample.random
           password = Password::Sample.default
           other_username = Username::Sample.default

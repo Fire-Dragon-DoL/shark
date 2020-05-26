@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'domain/username'
 require 'domain/password'
 
@@ -10,15 +12,15 @@ module User
     attr_accessor :password_confirmation
 
     validates :name,
-      presence: true,
-      length: { minimum: 1, maximum: 255 }
+              presence: true,
+              length: { minimum: 1, maximum: 255 }
     validates :password,
-      presence: true,
-      length: { minimum: 8, maximum: 32 },
-      confirmation: true
+              presence: true,
+              length: { minimum: 8, maximum: 32 },
+              confirmation: true
     validates :password_confirmation,
-      presence: true,
-      length: { minimum: 8, maximum: 32 }
+              presence: true,
+              length: { minimum: 8, maximum: 32 }
 
     def initialize(name, password, password_confirmation)
       @name = name
@@ -40,23 +42,23 @@ module User
       end
 
       def self.password_other
-        ::Domain::Password::Sample.default + "2"
+        ::Domain::Password::Sample.default + '2'
       end
 
       def self.too_short_name
-        ""
+        ''
       end
 
       def self.too_long_name
-        "a" * 256
+        'a' * 256
       end
 
       def self.too_short_password
-        "a" * 7
+        'a' * 7
       end
 
       def self.too_long_password
-        "a" * 33
+        'a' * 33
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'domain/password'
 require 'domain/user/get'
 require 'securerandom'
@@ -17,6 +19,7 @@ module Domain
 
       return nil if digested_pass.nil?
       return nil unless match.(digested_pass, password)
+
       self.class.build_token
     end
 

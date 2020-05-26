@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 module User
   class SignUpTest < ActiveSupport::TestCase
-    test "With password and password confirmation matching is valid" do
+    test 'With password and password confirmation matching is valid' do
       username = SignUp::Sample.name
       password = SignUp::Sample.password
       params = {
@@ -14,7 +16,7 @@ module User
       assert sign_up.valid?
     end
 
-    test "With password and password confirmation different is invalid" do
+    test 'With password and password confirmation different is invalid' do
       username = SignUp::Sample.name
       password = SignUp::Sample.password
       other_pass = SignUp::Sample.password_other
@@ -30,7 +32,7 @@ module User
       end
     end
 
-    test "With username nil is invalid" do
+    test 'With username nil is invalid' do
       username = nil
       password = SignUp::Sample.password
       params = {
@@ -45,7 +47,7 @@ module User
       end
     end
 
-    test "With username too short is invalid" do
+    test 'With username too short is invalid' do
       username = SignUp::Sample.too_short_name
       password = SignUp::Sample.password
       params = {
@@ -60,7 +62,7 @@ module User
       end
     end
 
-    test "With username too long is invalid" do
+    test 'With username too long is invalid' do
       username = SignUp::Sample.too_long_name
       password = SignUp::Sample.password
       params = {
@@ -75,7 +77,7 @@ module User
       end
     end
 
-    test "With password too short is invalid" do
+    test 'With password too short is invalid' do
       username = SignUp::Sample.name
       password = SignUp::Sample.too_short_password
       params = {
@@ -90,7 +92,7 @@ module User
       end
     end
 
-    test "With password too long is invalid" do
+    test 'With password too long is invalid' do
       username = SignUp::Sample.name
       password = SignUp::Sample.too_long_password
       params = {

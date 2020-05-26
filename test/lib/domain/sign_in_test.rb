@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'domain/user/get'
 require 'domain/sign_in'
@@ -6,7 +8,7 @@ require 'domain/password'
 
 module Domain
   class SignInTest < ActiveSupport::TestCase
-    test "With existing username and matching password is successful" do
+    test 'With existing username and matching password is successful' do
       username = Username::Sample.random
       password = Password::Sample.default
 
@@ -17,7 +19,7 @@ module Domain
       refute token.nil?
     end
 
-    test "With missing username fails" do
+    test 'With missing username fails' do
       username = Username::Sample.random
       password = Password::Sample.default
       other_username = Username::Sample.default
@@ -29,7 +31,7 @@ module Domain
       assert token.nil?
     end
 
-    test "With existing username and incorrect password fails" do
+    test 'With existing username and incorrect password fails' do
       username = Username::Sample.random
       password = Password::Sample.default
       other_password = Password::Sample.random

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'domain/password'
 require 'domain/user/put'
 
@@ -28,6 +30,7 @@ module Domain
 
         def call(name)
           return nil if username != name
+
           digested_password
         end
 

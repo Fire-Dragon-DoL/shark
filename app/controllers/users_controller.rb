@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'domain/sign_up'
 
 class UsersController < ApplicationController

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'domain/sign_up'
 require 'domain/user/get'
@@ -7,7 +9,7 @@ require 'domain/username'
 module Domain
   module User
     class GetTest < ActiveSupport::TestCase
-      test "With existing username returns digested password" do
+      test 'With existing username returns digested password' do
         username = Username::Sample.random
         password = Password::Sample.default
 
@@ -18,7 +20,7 @@ module Domain
         assert is_matching_pass
       end
 
-      test "With missing username returns nil" do
+      test 'With missing username returns nil' do
         username = Username::Sample.random
 
         digested_pass = Get.(username)
