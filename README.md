@@ -73,3 +73,9 @@ environment variables:
 
 - The top-level namespace is reserved to Rails
 - The business logic is located into `lib/domain`, under `Domain` namespace
+
+## API Versioning
+
+URLs for the API endpoint are prefixed with API version number. This allows
+maintaining different endpoints when the API changes without breaking existing
+clients.
