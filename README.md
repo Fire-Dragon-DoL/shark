@@ -68,3 +68,8 @@ To run the application without docker, it's necessary to set the following
 environment variables:
 
 - `REDIS_URL`
+
+## Conventions
+
+- The top-level namespace is reserved to Rails
+- The business logic is located into `lib/domain`, under `Domain` namespace
