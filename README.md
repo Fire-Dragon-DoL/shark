@@ -27,7 +27,7 @@ The master.key file is included in this repository as an affordance.
 Normally it shouldn't be part of the git repository and should be uploaded
 separately.
 
-## Operations
+## Further Development
 
 The following improvements should be made before deploying the application:
 
@@ -83,3 +83,9 @@ clients.
 ## Documentation
 
 Documentation has been ignored for this take-home assignement
+
+## Samples
+
+Sample modules are considered part of production code. Not only can be used in
+testing environment, but are also useful in exploratory testing, exploratory
+usage (irb), staging servers, development.
