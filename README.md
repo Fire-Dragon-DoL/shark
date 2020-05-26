@@ -21,7 +21,9 @@ rails new shark --api --skip-action-mailer --skip-active-record \
   --skip-javascript --skip-turbolinks --skip-bootsnap --skip-webpack-install
 ```
 
-## Requirements
+## Getting Started
+
+### Requirements
 
 - ruby
 - bundler
@@ -34,7 +36,7 @@ environment variables:
 
 - `REDIS_URL`
 
-## Optional Dependencies
+### Optional Dependencies
 
 If the following dependencies are present on the machine, it's possible to
 execute the interactive tests as well as the automated ones:
@@ -43,6 +45,38 @@ execute the interactive tests as well as the automated ones:
 - curl
 - docker
 - docker-compose
+
+### Testing
+
+All the following commands should be executed from the root directory of the
+project.
+
+#### Automated
+
+To execute the automated test suite it's sufficient to run the following
+command:
+
+```bash
+./test.sh
+```
+
+It will start a redis instance on port 6400 through docker and execute
+`bundle exec rails test`.
+
+#### Interactive
+
+Interactive tests are meant to be executed by an operator who can review the
+output of such commands to verify the success or failure of the operations.
+
+It's sufficient to execute one of the following commands:
+
+- `./interactive/sign_up_and_sign_in.sh`
+- `./interactive/sign_up_duplicate.sh` (Sign up twice)
+- `./interactive/sign_up_invalid.sh` (Sign up with invalid parameters)
+
+Redis and the rails application will be started through docker (port 3000).
+`curl` will be executed to perform HTTP requests and verify the success of
+the operations.
 
 ## Decisions
 
@@ -60,6 +94,8 @@ Documentation has been ignored for this take-home assignement
 
 - The top-level namespace is reserved to Rails
 - The business logic is located into `lib/domain`, under `Domain` namespace
+- Rubocop style-guide is being followed, the configuration can be found
+  in the root directory of the project
 
 ### API Versioning
 
