@@ -1,2 +1,2 @@
 redis: docker-compose -f docker-compose.development.yml up
-web: bundle exec rails server
+web: PORT=3000 bundle exec rails server
