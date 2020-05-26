@@ -33,6 +33,10 @@ module User
         ::Domain::Password::Sample.default
       end
 
+      def self.password_other
+        ::Domain::Password::Sample.default + '2'
+      end
+
       def self.empty_name
         ""
       end
